@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<!--<base href="/testpage">-->
+		<title>Bootload Your Raw Arduino IC</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link class="css" rel="stylesheet" href="/robodiary.io/assets/css/bootload.css" />
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+	</head>
+	<body class="index">
+		<div id="page-wrapper">
+			<!-- Header -->
+				<header id="header" class="alt">
+					<h1 id="logo"><a href="index.html"><span><b>ROBO DIARY</b></span></a></h1>
+					<nav id="nav">
+						<ul>
+							<li class="current"><a href="/robodiary.io/index.html">HOME</a></li>
+							<li><a href="/robodiary.io/about.html" >ABOUT</a></li>
+							<li><a href="/robodiary.io/projects/index.html" >PROJECTS</a></li>
+							<li><a href="/robodiary.io/ourstory/index.html">OUR STORY</a></li>
+							<li><a href="/robodiary.io/products/index.html" >SHOP</a></li>
+							<li class="submenu">
+								<a href="#" class="button special">MORE</a>
+								<ul>
+									<li><a href="/robodiary.io/contact.html">Contact</a></li>
+									<li><a href="/robodiary.io/sponsorship_page.html">OUR SPONSORS</a></li>
+									<!--<li><a href="left-sidebar.html">Left Sidebar</a></li>
+									<li><a href="right-sidebar.html">Right Sidebar</a></li>
+									-->
+								</ul>
+							</li>
+							
+						</ul>
+					</nav>
+				</header>
+			<section id="banner">
+
+					<!--
+						".inner" is set up as an inline-block so it automatically expands
+						in both directions to fit whatever's inside it. This means it won't
+						automatically wrap lines, so be sure to use line breaks where
+						appropriate (<br />).
+					-->
+					<div class="inner">
+
+						<header>
+							<h2>What's New?</h2>
+						</header>	
+						<p><strong>Checkout Our Latest Post</strong></p>
+						<!--<br />
+						Checkout Our Latest Post
+						<br />
+						<a href="#">Let's Go</a>.</p>
+						-->
+						<footer>
+							<ul class="buttons vertical">
+								<li><a href="#main" class="button fit scrolly">Tell Me More</a></li>
+							</ul>
+						</footer>
+
+					</div>
+
+				</section>
+			<article id="main">
+		 		   <section class="wrapper style3 container special">
+					<header >
+						<h2><strong>Bootload Your Raw Arduino IC</strong></h2>
+						<br />
+						<p><p>Burning bootloader onto a raw ATmega328P can be tricky sometimes depending upon the version you buy from the market.
+ In the market there are two variants available ATmega328-PU and ATmega328P-PU you can find it on your 
+ IC just take a closer look.
+</p>
+<br>
+<p><b>First of all what is a bootloader?</b>
+<br>
+It is basically a program that resides in a microcontroller chip that manages 
+the upload of your sketches onto the IC. It is basically the operating system of the IC.
+<br>
+</p>
+
+<h3>Here what you need to do if you have a ATmega328-PU:</h3>
+
+<ul style="list-style-type:square;">
+	<li><p6>First find the avrdude.conf in C:\ProgramFiles\arduino\hardware\tools\ avrdude.conf.</p6></li>
+	<li><p6>Copy this file at a safe place(as it will be used for bootloading ATmega328P-PU).</p6></li>
+	<li><p6>Open this file in wordpad and find the signature:
+		<b>0x1e 0x95 0x0F</b> (for ATmega328P-PU) and change it with <b>0x1e 0x95 0x14</b> (for ATmega328-PU).</p6></li>
+	<li><p6>Save it and use it for bootloading the ATmega32-PU.</p6></li>
+</ul>
+<p6>
+<b>Note:</b> If you want to bootload simply ATmega328P-PU,
+ there is no need to change the above file and you can directly proceed for the connections.
+ <br>
+ <br>
+ </p6>
+ <h3>Connections of ATmega328 IC with Arduino Uno:</h3>
+</p6>
+<ul style="list-style-type:square;">
+	<li>UNO 5V —> ATmega328 pin 7 (VCC)</li>
+	<li>UNO GND —> ATmega328 pin 8 (GND)</li>
+	<li>UNO pin 10 —> ATmega328 pin 1 (RESET)</li>
+	<li>UNO pin 11 —> ATmega328 pin 17 (MOSI)</li>
+	<li>UNO pin 12 —> ATmega328 pin 18 (MISO)</li>
+	<li>UNO pin 13 —> ATmega328 pin 19 (SCK)</li>
+</ul>
+<h3>Additional Components</h3>
+<ul style="list-style-type:square;">
+	<li>A 16 MHz crystal</li>
+	<li>A 10k resistor, and</li>
+	<li>Two 18 to 22 picofarad (ceramic) capacitors.</li>
+</ul>
+<p><b>Note:</b> additional circuitery can be avoided, to know more visit
+<a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">Arduino.cc</a>
+<p>
+<h3>Circuit:</h3>
+<img src="/robodiary.io/images/BreadboardAVR.png" style="margin-left:3em;">
+<h3>In the Arduino IDE:</h3>
+<ul style="list-style-type:square;">
+	<li><p6>Upload the Arduino ISP program from the Example onto the Uno board.</p6></li>
+	<li><p6>Exchange the files.</p6></li>
+	<li><p6>Select the Correct Board and Serial Port from the tool menu.</p6></li>
+	<li><p6>Select the programmer ->Arduino as ISP in the tools menu.</p6></li>
+	<li><p6>Click on the burn Bootloader in the tools menu.</p6></li>
+</ul>
+<p>And thats it. Your IC is now bootloaded.</p></p>
+					</header>
+					</section>
+</article>					
+
+			<!-- CTA -->
+				<section id="cta">
+
+					<header>
+						<h2>Are you getting curious ?</h2>
+						<p1>Read our story associated with the above projects</p1>
+					</header>
+					<footer>
+						<ul class="buttons">
+							<li><a href="#" class="button special">OUR STORY</a></li>
+							<!--<li><a href="#" class="button">LOL Wut</a></li>-->
+						</ul>
+					</footer>
+
+				</section>
+			<!-- Footer -->
+				<footer id="footer">
+
+					<ul class="icons">
+						<li><a href="#" class="icon circle fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon circle fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon circle fa-google-plus"><span class="label">Google+</span></a></li>
+						<li><a href="#" class="icon circle fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon circle fa-dribbble"><span class="label">Dribbble</span></a></li>
+					</ul>
+
+					<ul class="copyright">
+						<li>&copy; Untitled</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+
+				</footer>
+		</div>
+		<!-- Scripts -->
+			<script src="/robodiary.io/assets/js/jquery.min.js"></script>
+			<script src="/robodiary.io/assets/js/jquery.dropotron.min.js"></script>
+			<script src="/robodiary.io/assets/js/jquery.scrolly.min.js"></script>
+			<script src="/robodiary.io/assets/js/jquery.scrollgress.min.js"></script>
+			<script src="/robodiary.io/assets/js/skel.min.js"></script>
+			<script src="/robodiary.io/assets/js/util.js"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="/robodiary.io/assets/js/main.js"></script>
+	</body>		
+</html>
