@@ -17,6 +17,18 @@
 			{%include cta.html %}
 			{% include footer.html %}
 		</div>
+		<script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+		<script>
+		// Initialize Firebase
+				var config = {
+				apiKey: "AIzaSyAxrrZCejMau4xdjTJnc-ssSwBcnYq_i6s",
+				authDomain: "robodiary.firebaseapp.com",
+				databaseURL: "https://robodiary.firebaseio.com",
+				storageBucket: "",
+				messagingSenderId: "447757350893"
+				};
+				firebase.initializeApp(config);
+		</script>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
